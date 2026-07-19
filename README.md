@@ -11,9 +11,9 @@ Develop an AI-based speaker verification system using Deep Learning.
 ## Team
 
 - Taljangani (Leader)
-- Goudarzian
-- Nematzade
-- Heidari
+- Heidari(sortware engineer)
+- Nematzade(data engineer)
+- Goudarzian(AI engineer)
 
 ---
 
