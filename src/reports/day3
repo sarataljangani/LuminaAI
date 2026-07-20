@@ -1,0 +1,1 @@
+# Day 03 Report ## Topics Learned - File Handling - Exception Handling - Python Modules - Librosa Installation - Reading Audio File ## Files Created - file_handling.py - exception_handling.py - modules_practice.py - audio_read.py ## Challenges - Installing Librosa - Understanding Exceptions ## Questions - What is sample rate? - How does Librosa read audio? 
