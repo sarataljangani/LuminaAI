@@ -7,4 +7,3 @@ print("Sample Rate:", sample_rate)
 print("Number of Samples:", len(audio))
 
 print("Duration:", len(audio)/sample_rate)
-
