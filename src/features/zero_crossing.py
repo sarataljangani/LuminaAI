@@ -1,13 +1,15 @@
 import librosa
 import numpy as np
 
+# خواندن فایل صوتی 
 audio, sr = librosa.load("data/voice.wav", sr=None)
 
+#محاسبه zero crossing rate
 zcr = librosa.feature.zero_crossing_rate(audio)
 
-print(zcr)
+print(zcr.shape)
 
-print()
+print("zero crossing Rate:")
 
 print("Average ZCR:")
 
