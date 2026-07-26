@@ -3,7 +3,7 @@ import pandas as pd
 
 from features.feature_extractor import extract_features
 
-labels = pd.read_csv("data/competition_dataset/labels.csv")
+labels = pd.read_csv("data/training/labels.csv")
 
 dataset = []
 
@@ -14,21 +14,20 @@ for _, row in labels.iterrows():
     speaker = row["speaker_id"]
 
     path = os.path.join(
-        "data/competition_dataset",
+        "data/training",
         file_name
     )
 
     features = extract_features(path)
 
-    data = {
+    sample = {
         "speaker_id": speaker
     }
 
     for i, value in enumerate(features):
+        sample[f"Feature_{i+1}"] = value
 
-        data[f"Feature_{i+1}"] = value
-
-    dataset.append(data)
+    dataset.append(sample)
 
 df = pd.DataFrame(dataset)
 
@@ -38,7 +37,5 @@ df.to_csv(
 )
 
 print(df.head())
-
-print()
 
 print(df.shape)
