@@ -2,24 +2,24 @@
 
 ## Goal
 
-Train the first machine learning model for speaker recognition.
+Train the first speaker recognition model using the competition dataset.
 
 ## Dataset
 
-- Input: features.csv
-- Number of speakers: 4
-- Features: 13 MFCC features
-- Dataset split: 80% Train / 20% Test
+Competition Dataset
 
 ## Model
 
 Random Forest Classifier
 
+## Train/Test Split
+
+80% / 20%
+
 ## Result
 
-- Model trained successfully.
-- Accuracy: 100% (1.0)
+Accuracy = ...
 
 ## Conclusion
 
-The model correctly classified all test samples. Since the dataset is relatively small, this result is encouraging but does not necessarily guarantee the same performance on unseen data. A larger and more diverse dataset is recommended for more reliable evaluation.
+The first model was successfully trained on the competition dataset.

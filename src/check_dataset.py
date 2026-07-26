@@ -18,3 +18,4 @@ print()
 
 print("Classes:")
 print(df["Person"].value_counts())
+ 
