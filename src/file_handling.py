@@ -1,3 +1,4 @@
+
 # Writing to a file
 with open("notes.txt", "w") as file:
     file.write("LuminaAI Day 3 Practice\n")
