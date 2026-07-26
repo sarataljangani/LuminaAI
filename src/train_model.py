@@ -1,74 +1,86 @@
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
-
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 
-from sklearn.metrics import accuracy_score
-df = pd.read_csv(
-    "data/features.csv"
-)
+# ==========================
+# خواندن دیتاست
+# ==========================
+
+df = pd.read_csv("data/dataset_features.csv")
+
+print("Dataset Shape:")
+print(df.shape)
+
+print("\nFirst 5 Rows:")
 print(df.head())
 
-print()
+# ==========================
+# جدا کردن ویژگی ها و برچسب
+# ==========================
 
-print(df.info())
+X = df.drop("speaker_id", axis=1)
 
-print()
+y = df["speaker_id"]
 
-print(df.shape)
-X = df.drop(
-    "Person",
-    axis=1
-)
-y = df["Person"]
+# ==========================
+# تقسیم داده
+# ==========================
+
 X_train, X_test, y_train, y_test = train_test_split(
-
     X,
-
     y,
-
     test_size=0.2,
-
-    random_state=42
-
+    random_state=42,
+    stratify=y
 )
-print(X_train.shape)
 
-print(X_test.shape)
+print("\nTrain Size:", X_train.shape)
+print("Test Size:", X_test.shape)
 
-print(y_train.shape)
+# ==========================
+# ساخت مدل
+# ==========================
 
-print(y_test.shape)
 model = RandomForestClassifier(
-
+    n_estimators=100,
     random_state=42
-
 )
-model.fit(
 
-    X_train,
+# ==========================
+# آموزش مدل
+# ==========================
 
-    y_train
+model.fit(X_train, y_train)
 
-)
-predictions = model.predict(
+print("\nModel Trained Successfully.")
 
-    X_test
+# ==========================
+# پیش بینی
+# ==========================
 
-)
-print(predictions)
-accuracy = accuracy_score(
+predictions = model.predict(X_test)
 
-    y_test,
+# ==========================
+# محاسبه دقت
+# ==========================
 
-    predictions
+accuracy = accuracy_score(y_test, predictions)
 
-)
-print(
+print("\nAccuracy:")
+print(accuracy)
 
-    "Accuracy:",
+# ==========================
+# گزارش
+# ==========================
 
-    accuracy
+print("\nClassification Report:")
+print(classification_report(y_test, predictions))
 
-)
+# ==========================
+# ماتریس خطا
+# ==========================
+
+print("\nConfusion Matrix:")
+print(confusion_matrix(y_test, predictions))

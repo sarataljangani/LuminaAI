@@ -3,33 +3,32 @@ import pandas as pd
 
 from features.feature_extractor import extract_features
 
-base_path = "data/voices"
+labels = pd.read_csv("data/competition_dataset/labels.csv")
 
 dataset = []
 
-for person in os.listdir(base_path):
+for _, row in labels.iterrows():
 
-    person_folder = os.path.join(base_path, person)
+    file_name = row["audio_file"]
 
-    if not os.path.isdir(person_folder):
-        continue
+    speaker = row["speaker_id"]
 
-    for file in os.listdir(person_folder):
+    path = os.path.join(
+        "data/competition_dataset",
+        file_name
+    )
 
-        if file.endswith(".wav"):
+    features = extract_features(path)
 
-            path = os.path.join(person_folder, file)
+    data = {
+        "speaker_id": speaker
+    }
 
-            features = extract_features(path)
+    for i, value in enumerate(features):
 
-            row = {
-                "Person": person
-            }
+        data[f"Feature_{i+1}"] = value
 
-            for i, value in enumerate(features):
-                row[f"Feature_{i+1}"] = value
-
-            dataset.append(row)
+    dataset.append(data)
 
 df = pd.DataFrame(dataset)
 
@@ -43,7 +42,3 @@ print(df.head())
 print()
 
 print(df.shape)
-
-print()
-
-print(df.columns)
