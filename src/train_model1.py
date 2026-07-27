@@ -40,6 +40,8 @@ print(X_test.shape)
 print(y_train.shape)
 
 print(y_test.shape)
+
+
 model = RandomForestClassifier(
 
     random_state=42
