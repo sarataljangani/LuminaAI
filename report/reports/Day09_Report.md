@@ -20,7 +20,7 @@ Compare multiple Machine Learning models.
 | Decision Tree | ... |
 | SVM | ... |
 
-## Best Model
+## Best Modelg
 
 ...
 
