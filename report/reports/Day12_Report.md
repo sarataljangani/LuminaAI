@@ -1,15 +1,27 @@
-Goal
+# Day 12
 
-Feature Extraction Module
+## Goal
 
-Tasks
+Implement Feature Extraction Module
 
-Designed Feature Extraction
+## Completed Tasks
 
-Designed CSV Format
+- Created audio_loader.py
+- Created feature_extractor.py
+- Created create_features_dataset.py
+- Added constants.py
+- Designed feature extraction pipeline
+- Designed features.csv structure
 
-Created Modules
+## Learned Concepts
 
-Next Step
+- Single Responsibility Principle
+- Modular Programming
+- Feature Engineering
+- MFCC Pipeline
+- Clean Project Architecture
 
-Dataset Processing
+## Status
+
+Feature Extraction module is ready.
+Waiting for the competition dataset to run and debug.
